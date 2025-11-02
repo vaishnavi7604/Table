@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Table with Images</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    td {
+      border: 2px solid #444;
+      padding: 10px;
+      text-align: center;
+    }
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="table-container"></div>
+
+  <script>
+    // Create a table
+    const table = document.createElement("table");
+
+    // Loop to create 5 rows
+    for (let i = 0; i < 5; i++) {
+      const row = document.createElement("tr");
+
+      // Loop to create 4 columns per row
+      for (let j = 0; j < 4; j++) {
+        const cell = document.createElement("td");
+        const img = document.createElement("img");
+
+        // You can use any image URL (below uses placeholder)
+        img.src = `https://picsum.photos/100?random=${i*4 + j}`;
+        img.alt = `Image ${i*4 + j + 1}`;
+
+        // Append image to cell and cell to row
+        cell.appendChild(img);
+        row.appendChild(cell);
+      }
+
+      // Append row to table
+      table.appendChild(row);
+    }
+
+    // Append table to div container
+    document.getElementById("table-container").appendChild(table);
+  </script>
+
+</body>
+</html>
